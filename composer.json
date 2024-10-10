@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "KodeZen\\GutenImageParser\\": "Includes/"
-        }
+        },
+        "files": [
+            "Includes/functions.php"
+        ]
     },
     "authors": [
         {
