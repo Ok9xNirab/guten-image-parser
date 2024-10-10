@@ -66,4 +66,11 @@ abstract class ImageParser {
 
 		return $attachment_id;
 	}
+
+	protected function check_external_url( string $url ): bool {
+		$link_url = parse_url( $url );
+		$home_url = parse_url( home_url() );
+
+		return ( ! empty( $link_url['host'] ) && ( $link_url['host'] !== $home_url['host'] ) );
+	}
 }

@@ -12,7 +12,12 @@ class CoreImageParser extends ImageParser {
 		$html5   = new HTML5DOMDocument();
 		$imgHTML = $this->block['innerHTML'];
 		$html5->loadHTML( $imgHTML );
-		$imgURL        = $html5->querySelector( 'img' )->getAttribute( 'src' );
+		$imgURL = $html5->querySelector( 'img' )->getAttribute( 'src' );
+
+		if ( ! $this->check_external_url( $imgURL ) ) {
+			return $this->block;
+		}
+
 		$attachment_id = $this->upload_file( $imgURL );
 
 		if ( $attachment_id instanceof WP_Error ) {
