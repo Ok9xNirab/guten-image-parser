@@ -11,7 +11,7 @@ class GroupParser extends ImageParser {
 		$bg_exists = isset( $attrs['style'], $attrs['style']['background'], $attrs['style']['background']['backgroundImage'] );
 
 		if ( $bg_exists ) {
-			$imgUrl         = $attrs['style']['background']['backgroundImage']['url'];
+			$imgUrl = $attrs['style']['background']['backgroundImage']['url'];
 
 			if ( $this->check_external_url($imgUrl) ) {
 				$attachment_id  = $this->upload_file( $imgUrl );

@@ -12,7 +12,7 @@ abstract class ImageParser {
 		$this->block = $block;
 	}
 
-	protected abstract function parse(): array;
+	abstract protected function parse(): array;
 
 	public function doParse(): array {
 		return $this->parse();
@@ -26,7 +26,6 @@ abstract class ImageParser {
 	 *
 	 * @return int|WP_Error The ID of the attachment or a WP_Error on failure
 	 * @see https://developer.wordpress.org/reference/functions/media_handle_sideload/
-	 *
 	 */
 	protected function upload_file( string $url ) {
 		// URL Validation
